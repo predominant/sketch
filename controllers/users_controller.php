@@ -48,6 +48,21 @@ class UsersController extends AppController {
 	}
 
 /**
+ * Latest
+ *
+ * @return void
+ */
+	public function latest() {
+		$this->paginate = array(
+			'order' => 'User.modified',
+			'limit' => 8,
+			'contain' => array('Submission'),
+		);
+		$this->set('users', $this->paginate());
+		$this->render('index');
+	}
+
+/**
  * View User
  *
  * @param string $id User ID

@@ -10,7 +10,9 @@
 					'size' => 200,
 					'class' => 'main-image'));
 			?>
-			<h3 class="display-name"><?php echo $user['User']['display_name']; ?></h3>
+			<h3 class="display-name"><?php echo $this->Html->link(
+				$user['User']['display_name'],
+				array('controller' => 'users', 'action' => 'view', $user['User']['id'])); ?></h3>
 			<div class="submission-thumb">
 			</div>
 			<div class="submission-thumb">
