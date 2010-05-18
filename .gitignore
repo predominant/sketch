@@ -6,3 +6,5 @@ tmp/logs/*
 tmp/sessions/*
 tmp/tests/*
 !empty
+
+.DS_Store
