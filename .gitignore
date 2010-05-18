@@ -8,5 +8,6 @@ tmp/tests/*
 !empty
 
 config/database.php
+config/recaptcha.php
 
 .DS_Store
