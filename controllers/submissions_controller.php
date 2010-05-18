@@ -95,7 +95,6 @@ class SubmissionsController extends AppController {
  *
  * @param string $id Submission ID
  * @return void
- * @author Predominant
  */
 	/*
 	function delete($id = null) {
