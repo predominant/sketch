@@ -5,6 +5,7 @@
 	<?php
 	echo $this->Form->input('email');
 	echo $this->Form->input('password');
+	echo $this->Recaptcha->show();
 	?>
 	</fieldset>
 <?php echo $this->Form->end(__('Submit', true));?>
