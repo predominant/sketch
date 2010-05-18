@@ -7,4 +7,6 @@ tmp/sessions/*
 tmp/tests/*
 !empty
 
+config/database.php
+
 .DS_Store
