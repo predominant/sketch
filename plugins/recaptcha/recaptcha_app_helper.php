@@ -14,7 +14,7 @@
 /**
  * Recaptcha App Helper
  *
- * @package recpatcha
+ * @package recaptcha
  */
 class RecaptchaAppHelper extends AppHelper {
 	
