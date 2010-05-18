@@ -82,4 +82,25 @@ class UsersController extends AppController {
 			$this->data = $this->User->read(null, $id);
 		}
 	}
+
+/**
+ * Delete User
+ *
+ * @param string $id User ID
+ * @return void
+ */
+	/*
+	function delete($id = null) {
+		if (!$id) {
+			$this->Session->setFlash(__('Invalid id for user', true));
+			$this->redirect(array('action'=>'index'));
+		}
+		if ($this->User->delete($id)) {
+			$this->Session->setFlash(__('User deleted', true));
+			$this->redirect(array('action'=>'index'));
+		}
+		$this->Session->setFlash(__('User was not deleted', true));
+		$this->redirect(array('action' => 'index'));
+	}
+	*/
 }
