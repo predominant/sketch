@@ -18,7 +18,14 @@
 class RecaptchaHelper extends AppHelper {
 
 /**
- * Display a reCapthca input
+ * View helpers
+ *
+ * @var array
+ */
+	public $helpers = array('Html');
+
+/**
+ * Display a reCaptcha input
  * 
  * @return void
  */
@@ -31,11 +38,9 @@ class RecaptchaHelper extends AppHelper {
 		
 		$code = '';
 		if (!empty($this->params['Recaptcha.configuration']) && is_array($this->params['Recaptcha.configuration'])) {
-			$code = '<script type="text/javascript">var RecaptchaOptions = ' . json_encode($this->params['Recaptcha.configuration']) . ';</script>';
+			$code = $this->Html->scriptBlock('var RecaptchaOptions = ' . json_encode($this->params['Recaptcha.configuration']));
 		}
 		
-		$code .= recaptcha_get_html($this->params['Recaptcha.public_key']);
-		
-		return $this->output($code);
+		return $this->output($code . recaptcha_get_html($this->params['Recaptcha.public_key']));
 	}
 }
