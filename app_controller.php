@@ -39,6 +39,11 @@ class AppController extends Controller {
  */
 	public $components = array('DebugKit.Toolbar', 'Session');
 
+/**
+ * View helpers
+ *
+ * @var array
+ */
 	public $helpers = array('Form', 'Goodies.Gravatar', 'Html', 'Session');
 
 /**
