@@ -79,6 +79,9 @@ h2 {
 .user-summary .main-image {
 	background-color: #639;
 }
+.project-summary .main-image {
+	background-color: #ccc;
+}
 .display-name {
 	position: absolute;
 	top: 0;
