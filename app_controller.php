@@ -37,7 +37,7 @@ class AppController extends Controller {
  *
  * @var array
  */
-	public $components = array('DebugKit.Toolbar');
+	public $components = array('DebugKit.Toolbar', 'Session');
 
 /**
  * Constructor
