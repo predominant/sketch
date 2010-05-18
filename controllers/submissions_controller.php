@@ -1,13 +1,40 @@
 <?php
+/**
+ * Slavitica Sketch MiniSite
+ *
+ * Copyright (c) 2010 Graham Weldon
+ * Licensed under the LGPL GNU Lesser General Public License
+ * Redistributions of files must retain the above copyright notice
+ *
+ * @author Graham Weldon (http://grahamweldon.com)
+ * @copyright Copyright (c) 2010 Graham Weldon
+ * @license LGPL GNU Lesser General Public License (http://www.gnu.org/licenses/lgpl.html)
+ */
+
+/**
+ * Submissions Controller
+ *
+ * @package app
+ * @subpackage app.controllers
+ */
 class SubmissionsController extends AppController {
 
-	var $name = 'Submissions';
-
+/**
+ * Index
+ *
+ * @return void
+ */
 	function index() {
 		$this->Submission->recursive = 0;
 		$this->set('submissions', $this->paginate());
 	}
 
+/**
+ * View Submission
+ *
+ * @param string $id Submission ID
+ * @return void
+ */
 	function view($id = null) {
 		if (!$id) {
 			$this->Session->setFlash(__('Invalid submission', true));
@@ -16,6 +43,11 @@ class SubmissionsController extends AppController {
 		$this->set('submission', $this->Submission->read(null, $id));
 	}
 
+/**
+ * Add Submission
+ *
+ * @return void
+ */
 	function add() {
 		if (!empty($this->data)) {
 			$this->Submission->create();
@@ -31,6 +63,12 @@ class SubmissionsController extends AppController {
 		$this->set(compact('users', 'projects'));
 	}
 
+/**
+ * Edit Submission
+ *
+ * @param string $id Submission ID
+ * @return void
+ */
 	function edit($id = null) {
 		if (!$id && empty($this->data)) {
 			$this->Session->setFlash(__('Invalid submission', true));
@@ -52,6 +90,14 @@ class SubmissionsController extends AppController {
 		$this->set(compact('users', 'projects'));
 	}
 
+/**
+ * Delete Submission
+ *
+ * @param string $id Submission ID
+ * @return void
+ * @author Predominant
+ */
+	/*
 	function delete($id = null) {
 		if (!$id) {
 			$this->Session->setFlash(__('Invalid id for submission', true));
@@ -64,5 +110,5 @@ class SubmissionsController extends AppController {
 		$this->Session->setFlash(__('Submission was not deleted', true));
 		$this->redirect(array('action' => 'index'));
 	}
+	*/
 }
-?>
