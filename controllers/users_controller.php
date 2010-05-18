@@ -36,7 +36,7 @@ class UsersController extends AppController {
  *
  * @var array
  */
-	public $helpers = array('Recaptcha.Recaptcha', 'Goodies.Gravatar');
+	public $helpers = array('Recaptcha.Recaptcha');
 
 /**
  * Index
