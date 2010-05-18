@@ -36,6 +36,6 @@ class RecaptchaHelper extends AppHelper {
 		
 		$code .= recaptcha_get_html($this->params['Recaptcha.public_key']);
 		
-		return $this->output($code, $return);
+		return $this->output($code);
 	}
 }
