@@ -12,6 +12,18 @@
 			</div>
 			<div class="user-thumb">
 			</div>
+			<div class="user-thumb">
+			</div>
+			<div class="user-thumb">
+			</div>
+			<div class="user-thumb">
+			</div>
+			<div class="user-thumb">
+			</div>
+			<div class="user-thumb">
+			</div>
+			<div class="user-thumb">
+			</div>
 		</div>
 	<?php endforeach; ?>
 

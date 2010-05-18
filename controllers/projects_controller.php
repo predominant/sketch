@@ -25,8 +25,27 @@ class ProjectsController extends AppController {
  * @return void
  */
 	public function index() {
-		$this->Project->recursive = 0;
 		$this->set('projects', $this->paginate());
+	}
+
+/**
+ * Latest projects
+ *
+ * @return void
+ * @author Predominant
+ */
+	public function latest() {
+		$this->paginate = array(
+			'order' => $this->Project->alias . '.modified DESC',
+			'limit' => 8,
+			'contain' => array(
+				'Submission',
+				'Submission.User'
+			),
+		);
+		$projects = $this->paginate();
+		$this->set(compact('projects'));
+		$this->render('index');
 	}
 
 /**

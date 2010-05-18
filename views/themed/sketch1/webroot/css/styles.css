@@ -101,3 +101,11 @@ h2 {
 	width: 200px;
 	background-color: #999;
 }
+.project-summary .user-thumb {
+	float: left;
+	border-top: solid #fff 1px;
+	border-left: solid #fff 1px;
+	height: 65px;
+	width: 65px;
+	background-color: #639;
+}
