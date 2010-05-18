@@ -18,7 +18,7 @@ a.current {
  * Site container
  */
 #container {
-	width: 960px;
+	width: 900px;
 	margin: 0 auto;
 }
 
@@ -28,7 +28,7 @@ a.current {
 #header h1 {
 	float: right;
 	height: 40px;
-	width: 960px;
+	width: 900px;
 	overflow: hidden;
 	text-indent: -9999px;
 	background: transparent url(../img/logo.png) right top no-repeat;
@@ -62,5 +62,12 @@ h2 {
 	height: 200px;
 	background-color: #639;
 }
-
-
+.user-summary {
+	width: 200px;
+	float: left;
+	padding-right: 33px;
+	overflow: hidden;
+}
+.user-summary:nth-child(4n+1) {
+	padding-right: 0;
+}

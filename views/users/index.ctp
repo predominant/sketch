@@ -1,13 +1,15 @@
 <div class="users index">
 	<h2><?php __('Users');?></h2>
 	<?php foreach ($users as $user): ?>
-		<div class="user summary">
-			<?php echo $this->Gravatar->image(
+		<div class="user-summary">
+			<?php
+			echo $this->Gravatar->image(
 				$user['User']['email'],
 				array(
 					'default' => Router::url('/img/spacer.png', true),
 					'size' => 200,
-					'class' => 'gravatar')); ?>
+					'class' => 'gravatar'));
+			?>
 			<h3 class="display-name"><?php echo $user['User']['display_name']; ?></h3>
 			<div class="submission-thumb">
 			</div>
