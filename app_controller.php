@@ -32,11 +32,6 @@
  */
 class AppController extends Controller {
 
-	public function __construct() {
-		parent::__construct();
-		$this->_setupTheme();
-	}
-
 /**
  * Components
  *
@@ -44,11 +39,23 @@ class AppController extends Controller {
  */
 	public $components = array('DebugKit.Toolbar');
 
-	protected function _setupTheme() {
-		if (Configure::load('theme')) {
-			$this->view = 'Theme';
-			$this->theme = Configure::read('Theme');
-		}
+/**
+ * Constructor
+ *
+ */
+	public function __construct() {
+		parent::__construct();
+		$this->_setupTheme();
 	}
 
+/**
+ * Setup theme based on site settings
+ *
+ * @return void
+ * @author Predominant
+ */
+	protected function _setupTheme() {
+		$this->view = 'Theme';
+		$this->theme = Configure::read('Site.Theme');
+	}
 }

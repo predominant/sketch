@@ -50,5 +50,7 @@
  */
 
 Configure::load('recaptcha');
+Configure::load('site');
+
 define('RECAPTCHA_PRIVATE', Configure::read('Recaptcha.private'));
 define('RECAPTCHA_PUBLIC', Configure::read('Recaptcha.public'));
