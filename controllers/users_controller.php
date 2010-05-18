@@ -20,6 +20,25 @@
 class UsersController extends AppController {
 
 /**
+ * Components
+ *
+ * @var array
+ */
+	public $components = array(
+		'Recaptcha.Captcha' => array(
+			'private_key' => RECAPTCHA_PRIVATE,
+			'public_key' => RECAPTCHA_PUBLIC,
+		)
+	);
+
+/**
+ * View helpers
+ *
+ * @var array
+ */
+	public $helpers = array('Recaptcha.Recaptcha');
+
+/**
  * Index
  *
  * @return void
