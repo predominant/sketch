@@ -19,7 +19,8 @@
 			</div>
 		</div>
 	<?php endforeach; ?>
-		<?php debug(Router::url('/img/spacer.gif', true)); ?>
+
+<!--
 	<table cellpadding="0" cellspacing="0">
 	<tr>
 		<th><?php echo $this->Paginator->sort('display_name');?></th>
@@ -57,8 +58,10 @@
 	</tr>
 <?php endforeach; ?>
 	</table>
+	-->
 	<?php echo $this->element('pagination'); ?>
 </div>
+<!--
 <div class="actions">
 	<h3><?php __('Actions'); ?></h3>
 	<ul>
@@ -69,3 +72,4 @@
 		<li><?php echo $this->Html->link(__('New Submission', true), array('controller' => 'submissions', 'action' => 'add')); ?> </li>
 	</ul>
 </div>
+-->
