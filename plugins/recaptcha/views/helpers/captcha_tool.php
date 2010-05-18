@@ -10,14 +10,18 @@
  * @version 0.8.0
  * @copyright (c) 2009 Jason Burgess
  * @license MIT/X
+ *
+ * Modified by Graham Weldon (http://grahamweldon.com)
+ * - Added documentation
+ * - Updated for CakePHP 1.3 standards
  */
 class CaptchaToolHelper extends Helper {
-	/**
-	 * Display a reCapthca input
-	 * 
-	 * @since 0.1.0
-	 * @access public
-	 */
+
+/**
+ * Display a reCapthca input
+ * 
+ * @return void
+ */
 	public function show() {
 		App::import('Vendor', 'Recaptcha.recaptcha/recaptchalib');
 		
@@ -35,4 +39,3 @@ class CaptchaToolHelper extends Helper {
 		return $this->output($code, $return);
 	}
 }
-?>

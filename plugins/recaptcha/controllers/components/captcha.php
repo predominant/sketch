@@ -24,23 +24,44 @@
  * @version 0.8.0
  * @copyright (c) 2009 Jason Burgess
  * @license MIT/X
+ *
+ * Modified by Graham Weldon (http://grahamweldon.com)
+ * - Added documentation
+ * - Updated for CakePHP 1.3 standards
+ */
+
+/**
+ * CaptchaComponent
+ *
+ * @package recaptcha
+ * @subpackage recaptcha.controllers.components
  */
 class CaptchaComponent extends Object {
+
+/**
+ * Error indicator
+ *
+ * @var mixed
+ */
 	public $error = false;
+
+/**
+ * Recaptcha Private Key
+ *
+ * @var mixed
+ */
 	public $privateKey = false;
 
-	/**
-	 * Initialize the component 
-	 * 
-	 * @param $controller reference to the controller
-	 * @param $settings Settings for the component:
-	 * 					- private_key: (required) Private key from reCaptcha.net
-	 * 					- public_key: (required) Public key from reCaptcha.net
-	 * 					- config: (optional) Array of configuration options to pass to the reCaptcha library
-	 * @access public
-	 * @internal
-	 * @since 0.1.0
-	 */
+/**
+ * Initialize the component 
+ * 
+ * @param $controller reference to the controller
+ * @param $settings Settings for the component:
+ *        - private_key: (required) Private key from reCaptcha.net
+ *        - public_key: (required) Public key from reCaptcha.net
+ *        - config: (optional) Array of configuration options to pass to the reCaptcha library
+ * @return void
+ */
 	public function initialize(&$controller, $settings = array()) {		
 		if (!empty($settings['private_key'])) {
 			$this->privateKey = $settings['private_key'];
@@ -55,20 +76,15 @@ class CaptchaComponent extends Object {
 		}
 	}
 
-	/**
-	 * Validate the recaptcha code received by the user.
-	 * 
-	 * @return boolean success or failure
-	 * @access public
-	 * @since 0.1.0
-	 */
+/**
+ * Validate the recaptcha code received by the user.
+ * 
+ * @return boolean Success
+ */
 	public function validate() {
-		App::import('vendor', 'Recaptcha.recaptcha/recaptchalib');
-		
+		App::import('Vendor', 'Recaptcha.recaptcha/recaptchalib');
 		$resp = recaptcha_check_answer($this->privateKey, $_SERVER['REMOTE_ADDR'], $_POST['recaptcha_challenge_field'], $_POST['recaptcha_response_field']);
 		$error = $resp->error;
-		
 		return $resp->is_valid;
 	}
 }
-?>
