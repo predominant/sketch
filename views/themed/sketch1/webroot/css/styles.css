@@ -3,7 +3,6 @@
  */
 * {
 	font-family: Arial;
-	font-size: 12px;
 }
 
 a {
@@ -28,13 +27,29 @@ a.current {
  */
 #header h1 {
 	float: right;
+	height: 40px;
+	width: 960px;
+	overflow: hidden;
+	text-indent: -9999px;
+	background: transparent url(../img/logo.png) right top no-repeat;
+	margin: 1em 0;
 }
 
 /**
  * Navigation
  */
+#navigation {
+	float: right;
+}
 #navigation li {
 	float: left;
-	list-style: none;
-	padding: 0 7px;
+	padding-left: 15px;
+}
+
+/**
+ * Page Title
+ */
+h2 {
+	font-size: 2em;
+	margin-bottom: 0.5em;
 }
