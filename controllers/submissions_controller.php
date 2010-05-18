@@ -24,7 +24,7 @@ class SubmissionsController extends AppController {
  *
  * @return void
  */
-	function index() {
+	public function index() {
 		$this->Submission->recursive = 0;
 		$this->set('submissions', $this->paginate());
 	}
@@ -35,7 +35,7 @@ class SubmissionsController extends AppController {
  * @param string $id Submission ID
  * @return void
  */
-	function view($id = null) {
+	public function view($id = null) {
 		if (!$id) {
 			$this->Session->setFlash(__('Invalid submission', true));
 			$this->redirect(array('action' => 'index'));
@@ -48,7 +48,7 @@ class SubmissionsController extends AppController {
  *
  * @return void
  */
-	function add() {
+	public function add() {
 		if (!empty($this->data)) {
 			$this->Submission->create();
 			if ($this->Submission->save($this->data)) {
@@ -69,7 +69,7 @@ class SubmissionsController extends AppController {
  * @param string $id Submission ID
  * @return void
  */
-	function edit($id = null) {
+	public function edit($id = null) {
 		if (!$id && empty($this->data)) {
 			$this->Session->setFlash(__('Invalid submission', true));
 			$this->redirect(array('action' => 'index'));
@@ -97,7 +97,7 @@ class SubmissionsController extends AppController {
  * @return void
  */
 	/*
-	function delete($id = null) {
+	public function delete($id = null) {
 		if (!$id) {
 			$this->Session->setFlash(__('Invalid id for submission', true));
 			$this->redirect(array('action'=>'index'));

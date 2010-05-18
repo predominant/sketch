@@ -24,7 +24,7 @@ class ProjectsController extends AppController {
  *
  * @return void
  */
-	function index() {
+	public function index() {
 		$this->Project->recursive = 0;
 		$this->set('projects', $this->paginate());
 	}
@@ -35,7 +35,7 @@ class ProjectsController extends AppController {
  * @param string $id Project ID
  * @return void
  */
-	function view($id = null) {
+	public function view($id = null) {
 		if (!$id) {
 			$this->Session->setFlash(__('Invalid project', true));
 			$this->redirect(array('action' => 'index'));
@@ -48,7 +48,7 @@ class ProjectsController extends AppController {
  *
  * @return void
  */
-	function add() {
+	public function add() {
 		if (!empty($this->data)) {
 			$this->Project->create();
 			if ($this->Project->save($this->data)) {
@@ -68,7 +68,7 @@ class ProjectsController extends AppController {
  * @param string $id Project ID
  * @return void
  */
-	function edit($id = null) {
+	public function edit($id = null) {
 		if (!$id && empty($this->data)) {
 			$this->Session->setFlash(__('Invalid project', true));
 			$this->redirect(array('action' => 'index'));
@@ -95,7 +95,7 @@ class ProjectsController extends AppController {
  * @return void
  */
 	/*
-	function delete($id = null) {
+	public function delete($id = null) {
 		if (!$id) {
 			$this->Session->setFlash(__('Invalid id for project', true));
 			$this->redirect(array('action'=>'index'));

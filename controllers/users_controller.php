@@ -24,7 +24,7 @@ class UsersController extends AppController {
  *
  * @return void
  */
-	function index() {
+	public function index() {
 		$this->set('users', $this->paginate());
 	}
 
@@ -34,7 +34,7 @@ class UsersController extends AppController {
  * @param string $id User ID
  * @return void
  */
-	function view($id = null) {
+	public function view($id = null) {
 		if (!$id) {
 			$this->Session->setFlash(__('Invalid user', true));
 			$this->redirect(array('action' => 'index'));
@@ -47,7 +47,7 @@ class UsersController extends AppController {
  *
  * @return void
  */
-	function add() {
+	public function add() {
 		if (!empty($this->data)) {
 			$this->User->create();
 			if ($this->User->save($this->data)) {
@@ -65,7 +65,7 @@ class UsersController extends AppController {
  * @param string $id User ID
  * @return void
  */
-	function edit($id = null) {
+	public function edit($id = null) {
 		if (!$id && empty($this->data)) {
 			$this->Session->setFlash(__('Invalid user', true));
 			$this->redirect(array('action' => 'index'));
@@ -90,7 +90,7 @@ class UsersController extends AppController {
  * @return void
  */
 	/*
-	function delete($id = null) {
+	public function delete($id = null) {
 		if (!$id) {
 			$this->Session->setFlash(__('Invalid id for user', true));
 			$this->redirect(array('action'=>'index'));
