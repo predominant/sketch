@@ -48,3 +48,7 @@
  * Inflector::rules('plural', array('rules' => array(), 'irregular' => array(), 'uninflected' => array()));
  *
  */
+
+Configure::load('recaptcha');
+define('RECAPTCHA_PRIVATE', Configure::read('Recaptcha.private'));
+define('RECAPTCHA_PUBLIC', Configure::read('Recaptcha.public'));
