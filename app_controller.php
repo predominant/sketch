@@ -31,4 +31,11 @@
  * @subpackage    cake.app
  */
 class AppController extends Controller {
+
+/**
+ * Components
+ *
+ * @var array
+ */
+	public $components = array('DebugKit.Toolbar');
 }
