@@ -2,7 +2,12 @@
 	<h2><?php __('Users');?></h2>
 	<?php foreach ($users as $user): ?>
 		<div class="user summary">
-			<?php echo $this->Gravatar->image($user['User']['email'], array('default' => 'identicon', 'size' => 200)); ?>
+			<?php echo $this->Gravatar->image(
+				$user['User']['email'],
+				array(
+					'default' => Router::url('/img/spacer.png', true),
+					'size' => 200,
+					'class' => 'gravatar')); ?>
 			<h3 class="display-name"><?php echo $user['User']['display_name']; ?></h3>
 			<div class="submission-thumb">
 			</div>
@@ -12,7 +17,7 @@
 			</div>
 		</div>
 	<?php endforeach; ?>
-		
+		<?php debug(Router::url('/img/spacer.gif', true)); ?>
 	<table cellpadding="0" cellspacing="0">
 	<tr>
 		<th><?php echo $this->Paginator->sort('display_name');?></th>
