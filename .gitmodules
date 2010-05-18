@@ -4,3 +4,6 @@
 [submodule "plugins/debug_kit"]
 	path = plugins/debug_kit
 	url = git://github.com/cakephp/debug_kit.git
+[submodule "plugins/goodies"]
+	path = plugins/goodies
+	url = git://github.com/predominant/CakePHP-Goodies.git
