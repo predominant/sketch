@@ -8,7 +8,7 @@
 				array(
 					'default' => Router::url('/img/spacer.png', true),
 					'size' => 200,
-					'class' => 'gravatar'));
+					'class' => 'summary-main-image'));
 			?>
 			<h3 class="display-name"><?php echo $user['User']['display_name']; ?></h3>
 			<div class="submission-thumb">

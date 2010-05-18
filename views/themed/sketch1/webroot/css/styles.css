@@ -55,9 +55,10 @@ h2 {
 }
 
 /**
- * Users Index
+ * Users and Projects Index
  */
-.user-summary {
+.user-summary,
+.project-summary {
 	position: relative;
 	width: 200px;
 	float: left;
@@ -68,7 +69,7 @@ h2 {
 .user-summary:nth-child(4n+1) {
 	padding-right: 0;
 }
-.gravatar,
+.summary-main-image,
 .display-name {
 	width: 200px;
 	height: 200px;

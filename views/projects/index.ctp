@@ -1,5 +1,23 @@
 <div class="projects index">
 	<h2><?php __('Projects');?></h2>
+	<?php foreach ($projects as $project): ?>
+		<div class="project-summary">
+			<?php
+			echo $this->Html->image('spacer.png', array('class' => 'summary-main-image'));
+			?>
+			<h3 class="display-name"><?php echo $project['Project']['name']; ?></h3>
+			<div class="user-thumb">
+			</div>
+			<div class="user-thumb">
+			</div>
+			<div class="user-thumb">
+			</div>
+		</div>
+	<?php endforeach; ?>
+
+<!--
+<div class="projects index">
+	<h2><?php __('Projects');?></h2>
 	<table cellpadding="0" cellspacing="0">
 	<tr>
 			<th><?php echo $this->Paginator->sort('id');?></th>
@@ -52,7 +70,9 @@
  |
 		<?php echo $this->Paginator->next(__('next', true) . ' >>', array(), null, array('class' => 'disabled'));?>
 	</div>
+	-->
 </div>
+<!--
 <div class="actions">
 	<h3><?php __('Actions'); ?></h3>
 	<ul>
@@ -63,3 +83,4 @@
 		<li><?php echo $this->Html->link(__('New Submission', true), array('controller' => 'submissions', 'action' => 'add')); ?> </li>
 	</ul>
 </div>
+-->
