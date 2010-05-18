@@ -11,5 +11,7 @@
  * @license LGPL GNU Lesser General Public License (http://www.gnu.org/licenses/lgpl.html)
  */
 
-$config['Theme'] = 'sketch1';
+$config['Site'] = array(
+	'Theme' => 'sketch1',
+);
 ?>
