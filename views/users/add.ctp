@@ -3,12 +3,8 @@
 	<fieldset>
  		<legend><?php __('Add User'); ?></legend>
 	<?php
-		echo $this->Form->input('email');
-		echo $this->Form->input('display_name');
-		echo $this->Form->input('password');
-		echo $this->Form->input('validation_token');
-		echo $this->Form->input('validated');
-		echo $this->Form->input('banned');
+	echo $this->Form->input('email');
+	echo $this->Form->input('password');
 	?>
 	</fieldset>
 <?php echo $this->Form->end(__('Submit', true));?>
