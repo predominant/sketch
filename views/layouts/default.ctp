@@ -22,15 +22,16 @@
 	<?php
 	echo $this->Html->meta('icon');
 	echo $this->Html->css('reset');
+	echo $this->Html->css('clearfix');
 	echo $this->Html->css('styles');
 	echo $scripts_for_layout;
 	?>
 </head>
 <body>
 	<div id="container">
-		<div id="header">
+		<div id="header" class="clearfix">
 			<h1><?php echo $this->Html->link(__('Sketch: A Slavitica MiniSite', true), '/'); ?></h1>
-			<h2><?php echo $title_for_layout; ?></h2>
+			<?php echo $this->element('navigation'); ?>
 		</div>
 		<div id="content">
 			<?php echo $this->Session->flash(); ?>
@@ -38,11 +39,10 @@
 		</div>
 		<div id="footer">
 			<?php echo $this->Html->link(
-					$this->Html->image('cake.power.gif', array('alt'=> __('CakePHP: the rapid development php framework', true), 'border' => '0')),
-					'http://www.cakephp.org/',
-					array('target' => '_blank', 'escape' => false)
-				);
-			?>
+				$this->Html->image('cake.power.gif', array('alt'=> __('CakePHP: the rapid development php framework', true), 'border' => '0')),
+				'http://www.cakephp.org/',
+				array('target' => '_blank', 'escape' => false)
+			); ?>
 		</div>
 	</div>
 	<?php echo $this->element('sql_dump'); ?>
