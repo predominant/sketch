@@ -57,17 +57,33 @@ h2 {
 /**
  * Users Index
  */
-.gravatar {
-	width: 200px;
-	height: 200px;
-	background-color: #639;
-}
 .user-summary {
+	position: relative;
 	width: 200px;
 	float: left;
 	padding-right: 25px;
+	padding-bottom: 25px;
 	overflow: hidden;
 }
 .user-summary:nth-child(4n+1) {
 	padding-right: 0;
+}
+.gravatar,
+.display-name {
+	width: 200px;
+	height: 200px;
+}
+.gravatar {
+	background-color: #639;
+}
+.display-name {
+	position: absolute;
+	top: 0;
+	background: transparent url('../img/gravatar-overlay.png') left top no-repeat;
+	color: #ccc;
+	font-size: 1.5em;
+	padding-top: 175px;
+	padding-left: 10px;
+	font-family: Georgia, Utopia, Palatino, 'Palatino Linotype', serif;
+	font-weight: normal;
 }
