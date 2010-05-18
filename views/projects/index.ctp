@@ -2,10 +2,10 @@
 	<h2><?php __('Projects');?></h2>
 	<?php foreach ($projects as $project): ?>
 		<div class="project-summary">
-			<?php
-			echo $this->Html->image('spacer.png', array('class' => 'summary-main-image'));
-			?>
-			<h3 class="display-name"><?php echo $project['Project']['name']; ?></h3>
+			<?php echo $this->Html->image('spacer.png', array('class' => 'main-image')); ?>
+			<h3 class="display-name"><?php echo $this->Html->link(
+				$project['Project']['name'],
+				array('controller' => 'projects', 'action' => 'view', $project['Project']['id'])); ?></h3>
 			<div class="user-thumb">
 			</div>
 			<div class="user-thumb">

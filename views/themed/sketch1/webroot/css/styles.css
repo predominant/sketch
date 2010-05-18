@@ -69,21 +69,25 @@ h2 {
 .user-summary:nth-child(4n+1) {
 	padding-right: 0;
 }
-.summary-main-image,
-.display-name {
+.main-image,
+.display-name,
+.display-name a {
+	display: block;
 	width: 200px;
 	height: 200px;
 }
-.gravatar {
+.user-summary .main-image {
 	background-color: #639;
 }
 .display-name {
 	position: absolute;
 	top: 0;
 	background: transparent url('../img/gravatar-overlay.png') left top no-repeat;
+}
+.display-name a {
 	color: #ccc;
 	font-size: 1.5em;
-	padding-top: 175px;
+	padding-top: 172px;
 	padding-left: 10px;
 	font-family: Georgia, Utopia, Palatino, 'Palatino Linotype', serif;
 	font-weight: normal;
