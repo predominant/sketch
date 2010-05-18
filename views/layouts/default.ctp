@@ -28,12 +28,12 @@
 	?>
 </head>
 <body>
-	<div id="container">
+	<div id="container" class="clearfix">
 		<div id="header" class="clearfix">
 			<h1><?php echo $this->Html->link(__('Sketch: A Slavitica MiniSite', true), '/'); ?></h1>
 			<?php echo $this->element('navigation'); ?>
 		</div>
-		<div id="content">
+		<div id="content" class="clearfix">
 			<?php echo $this->Session->flash(); ?>
 			<?php echo $content_for_layout; ?>
 		</div>
