@@ -1,7 +1,30 @@
 <?php
+/**
+ * Slavitica Sketch MiniSite
+ *
+ * Copyright (c) 2010 Graham Weldon
+ * Licensed under the LGPL GNU Lesser General Public License
+ * Redistributions of files must retain the above copyright notice
+ *
+ * @author Graham Weldon (http://grahamweldon.com)
+ * @copyright Copyright (c) 2010 Graham Weldon
+ * @license LGPL GNU Lesser General Public License (http://www.gnu.org/licenses/lgpl.html)
+ */
+
+/**
+ * User Model
+ *
+ * @package app
+ * @subpackage app.models
+ */
 class User extends AppModel {
-	var $name = 'User';
-	var $validate = array(
+
+/**
+ * Validation rules
+ *
+ * @var array
+ */
+	public $validate = array(
 		'email' => array(
 			'email' => array(
 				'rule' => array('email'),
@@ -53,9 +76,13 @@ class User extends AppModel {
 			),
 		),
 	);
-	//The Associations below have been created with all possible keys, those that are not needed can be removed
 
-	var $hasMany = array(
+/**
+ * Has Many Associations
+ *
+ * @var array
+ */
+	public $hasMany = array(
 		'Project' => array(
 			'className' => 'Project',
 			'foreignKey' => 'user_id',
@@ -83,6 +110,4 @@ class User extends AppModel {
 			'counterQuery' => ''
 		)
 	);
-
 }
-?>

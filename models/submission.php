@@ -1,7 +1,30 @@
 <?php
+/**
+ * Slavitica Sketch MiniSite
+ *
+ * Copyright (c) 2010 Graham Weldon
+ * Licensed under the LGPL GNU Lesser General Public License
+ * Redistributions of files must retain the above copyright notice
+ *
+ * @author Graham Weldon (http://grahamweldon.com)
+ * @copyright Copyright (c) 2010 Graham Weldon
+ * @license LGPL GNU Lesser General Public License (http://www.gnu.org/licenses/lgpl.html)
+ */
+
+/**
+ * Submission Model
+ *
+ * @package app
+ * @subpackage app.models
+ */
 class Submission extends AppModel {
-	var $name = 'Submission';
-	var $validate = array(
+
+/**
+ * Validation rules
+ *
+ * @var array
+ */
+	public $validate = array(
 		'user_id' => array(
 			'notempty' => array(
 				'rule' => array('notempty'),
@@ -43,9 +66,13 @@ class Submission extends AppModel {
 			),
 		),
 	);
-	//The Associations below have been created with all possible keys, those that are not needed can be removed
 
-	var $belongsTo = array(
+/**
+ * Belongs To Associations
+ *
+ * @var array
+ */
+	public $belongsTo = array(
 		'User' => array(
 			'className' => 'User',
 			'foreignKey' => 'user_id',
@@ -62,4 +89,3 @@ class Submission extends AppModel {
 		)
 	);
 }
-?>

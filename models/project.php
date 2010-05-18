@@ -1,7 +1,30 @@
 <?php
+/**
+ * Slavitica Sketch MiniSite
+ *
+ * Copyright (c) 2010 Graham Weldon
+ * Licensed under the LGPL GNU Lesser General Public License
+ * Redistributions of files must retain the above copyright notice
+ *
+ * @author Graham Weldon (http://grahamweldon.com)
+ * @copyright Copyright (c) 2010 Graham Weldon
+ * @license LGPL GNU Lesser General Public License (http://www.gnu.org/licenses/lgpl.html)
+ */
+
+/**
+ * Project Model
+ *
+ * @package app
+ * @subpackage app.models
+ */
 class Project extends AppModel {
-	var $name = 'Project';
-	var $validate = array(
+
+/**
+ * Valiation rules
+ *
+ * @var array
+ */
+	public $validate = array(
 		'user_id' => array(
 			'notempty' => array(
 				'rule' => array('notempty'),
@@ -43,9 +66,13 @@ class Project extends AppModel {
 			),
 		),
 	);
-	//The Associations below have been created with all possible keys, those that are not needed can be removed
 
-	var $belongsTo = array(
+/**
+ * Belongs To Associations
+ *
+ * @var array
+ */
+	public $belongsTo = array(
 		'User' => array(
 			'className' => 'User',
 			'foreignKey' => 'user_id',
@@ -55,7 +82,12 @@ class Project extends AppModel {
 		)
 	);
 
-	var $hasMany = array(
+/**
+ * Has Many Associations
+ *
+ * @var array
+ */
+	public $hasMany = array(
 		'Submission' => array(
 			'className' => 'Submission',
 			'foreignKey' => 'project_id',
@@ -70,6 +102,4 @@ class Project extends AppModel {
 			'counterQuery' => ''
 		)
 	);
-
 }
-?>
