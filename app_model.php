@@ -31,4 +31,18 @@
  * @subpackage    cake.app
  */
 class AppModel extends Model {
+
+/**
+ * Limit recusion
+ *
+ * @var int
+ */
+	public $recursive = -1;
+
+/**
+ * Behaviors
+ *
+ * @var array
+ */
+	public $actsAs = array('Containable');
 }
