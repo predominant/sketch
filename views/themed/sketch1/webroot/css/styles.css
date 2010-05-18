@@ -53,3 +53,14 @@ h2 {
 	font-size: 2em;
 	margin-bottom: 0.5em;
 }
+
+/**
+ * Users Index
+ */
+.gravatar {
+	width: 200px;
+	height: 200px;
+	background-color: #639;
+}
+
+
