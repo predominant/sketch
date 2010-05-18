@@ -1,13 +1,39 @@
 <?php
+/**
+ * Slavitica Sketch MiniSite
+ *
+ * Copyright (c) 2010 Graham Weldon
+ * Licensed under the LGPL GNU Lesser General Public License
+ * Redistributions of files must retain the above copyright notice
+ *
+ * @author Graham Weldon (http://grahamweldon.com)
+ * @copyright Copyright (c) 2010 Graham Weldon
+ * @license LGPL GNU Lesser General Public License (http://www.gnu.org/licenses/lgpl.html)
+ */
+
+/**
+ * Users Controller
+ *
+ * @package app
+ * @subpackage app.controllers
+ */
 class UsersController extends AppController {
 
-	var $name = 'Users';
-
+/**
+ * Index
+ *
+ * @return void
+ */
 	function index() {
-		$this->User->recursive = 0;
 		$this->set('users', $this->paginate());
 	}
 
+/**
+ * View User
+ *
+ * @param string $id User ID
+ * @return void
+ */
 	function view($id = null) {
 		if (!$id) {
 			$this->Session->setFlash(__('Invalid user', true));
@@ -16,6 +42,11 @@ class UsersController extends AppController {
 		$this->set('user', $this->User->read(null, $id));
 	}
 
+/**
+ * Add User
+ *
+ * @return void
+ */
 	function add() {
 		if (!empty($this->data)) {
 			$this->User->create();
@@ -28,6 +59,12 @@ class UsersController extends AppController {
 		}
 	}
 
+/**
+ * Edit User
+ *
+ * @param string $id User ID
+ * @return void
+ */
 	function edit($id = null) {
 		if (!$id && empty($this->data)) {
 			$this->Session->setFlash(__('Invalid user', true));
@@ -46,6 +83,12 @@ class UsersController extends AppController {
 		}
 	}
 
+/**
+ * Delete User
+ *
+ * @param string $id User ID
+ * @return void
+ */
 	function delete($id = null) {
 		if (!$id) {
 			$this->Session->setFlash(__('Invalid id for user', true));
@@ -59,4 +102,3 @@ class UsersController extends AppController {
 		$this->redirect(array('action' => 'index'));
 	}
 }
-?>
