@@ -32,10 +32,23 @@
  */
 class AppController extends Controller {
 
+	public function __construct() {
+		parent::__construct();
+		$this->_setupTheme();
+	}
+
 /**
  * Components
  *
  * @var array
  */
 	public $components = array('DebugKit.Toolbar');
+
+	protected function _setupTheme() {
+		if (Configure::load('theme')) {
+			$this->view = 'Theme';
+			$this->theme = Configure::read('Theme');
+		}
+	}
+
 }
