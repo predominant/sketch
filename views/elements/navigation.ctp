@@ -7,7 +7,7 @@
 		array('controller' => 'submissions', 'action' => 'latest')); ?></li>
 	<li><?php echo $this->Html->link(
 		__('Projects', true),
-		array('controller' => 'projects', 'action' => 'index')); ?></li>
+		array('controller' => 'projects', 'action' => 'latest')); ?></li>
 	<li><?php echo $this->Html->link(
 		__('What The?', true),
 		array('controller' => 'pages', 'action' => 'display', 'about')); ?></li>
