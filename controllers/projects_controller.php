@@ -1,13 +1,40 @@
 <?php
+/**
+ * Slavitica Sketch MiniSite
+ *
+ * Copyright (c) 2010 Graham Weldon
+ * Licensed under the LGPL GNU Lesser General Public License
+ * Redistributions of files must retain the above copyright notice
+ *
+ * @author Graham Weldon (http://grahamweldon.com)
+ * @copyright Copyright (c) 2010 Graham Weldon
+ * @license LGPL GNU Lesser General Public License (http://www.gnu.org/licenses/lgpl.html)
+ */
+
+/**
+ * Projects Controller
+ *
+ * @package app
+ * @subpackage app.controllers
+ */
 class ProjectsController extends AppController {
 
-	var $name = 'Projects';
-
+/**
+ * Index
+ *
+ * @return void
+ */
 	function index() {
 		$this->Project->recursive = 0;
 		$this->set('projects', $this->paginate());
 	}
 
+/**
+ * View Project
+ *
+ * @param string $id Project ID
+ * @return void
+ */
 	function view($id = null) {
 		if (!$id) {
 			$this->Session->setFlash(__('Invalid project', true));
@@ -16,6 +43,11 @@ class ProjectsController extends AppController {
 		$this->set('project', $this->Project->read(null, $id));
 	}
 
+/**
+ * Add Project
+ *
+ * @return void
+ */
 	function add() {
 		if (!empty($this->data)) {
 			$this->Project->create();
@@ -30,6 +62,12 @@ class ProjectsController extends AppController {
 		$this->set(compact('users'));
 	}
 
+/**
+ * Edit Project
+ *
+ * @param string $id Project ID
+ * @return void
+ */
 	function edit($id = null) {
 		if (!$id && empty($this->data)) {
 			$this->Session->setFlash(__('Invalid project', true));
@@ -50,6 +88,13 @@ class ProjectsController extends AppController {
 		$this->set(compact('users'));
 	}
 
+/**
+ * Delete Project
+ *
+ * @param string $id Project ID
+ * @return void
+ */
+	/*
 	function delete($id = null) {
 		if (!$id) {
 			$this->Session->setFlash(__('Invalid id for project', true));
@@ -62,5 +107,5 @@ class ProjectsController extends AppController {
 		$this->Session->setFlash(__('Project was not deleted', true));
 		$this->redirect(array('action' => 'index'));
 	}
+	*/
 }
-?>
