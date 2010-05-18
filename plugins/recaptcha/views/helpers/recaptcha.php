@@ -15,7 +15,7 @@
  * - Added documentation
  * - Updated for CakePHP 1.3 standards
  */
-class CaptchaToolHelper extends Helper {
+class RecaptchaHelper extends Helper {
 
 /**
  * Display a reCapthca input
