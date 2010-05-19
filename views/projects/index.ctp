@@ -7,24 +7,15 @@
 				<h3 class="display-name"><?php echo $this->Html->link(
 					$project['Project']['name'],
 					array('controller' => 'projects', 'action' => 'view', $project['Project']['id'])); ?></h3>
-				<div class="user-thumb">
-				</div>
-				<div class="user-thumb">
-				</div>
-				<div class="user-thumb">
-				</div>
-				<div class="user-thumb">
-				</div>
-				<div class="user-thumb">
-				</div>
-				<div class="user-thumb">
-				</div>
-				<div class="user-thumb">
-				</div>
-				<div class="user-thumb">
-				</div>
-				<div class="user-thumb">
-				</div>
+				<?php foreach ($project['Submission'] as $submission): ?>
+					<div class="user-thumb">
+						<?php echo $this->Gravatar->image(
+							$submission['User']['email'],
+							array(
+								'size' => 65,
+								'default' => Router::url('/img/spacer.png', true))); ?>
+					</div>
+				<?php endforeach; ?>
 			</div>
 		<?php endforeach; ?>
 	</div>
