@@ -97,11 +97,19 @@ h2 {
 	font-family: Georgia, Utopia, Palatino, 'Palatino Linotype', serif;
 	font-weight: normal;
 }
-.user-summary .submission-thumb {
-	border-top: solid #fff 1px;
+.user-summary .submission-thumb,
+.user-summary .submission-thumb a {
 	height: 60px;
 	width: 200px;
+}
+.user-summary .submission-thumb {
+	border-top: solid #fff 1px;
 	background-color: #999;
+}
+.user-summary .submission-thumb a {
+	overflow: hidden;
+	display: block;
+	text-indent: -9999px;
 }
 .project-summary .user-thumb {
 	float: left;
