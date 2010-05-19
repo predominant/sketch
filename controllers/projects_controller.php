@@ -43,8 +43,7 @@ class ProjectsController extends AppController {
 				'Submission.User'
 			),
 		);
-		$projects = $this->paginate();
-		$this->set(compact('projects'));
+		$this->set('projects', $this->paginate());
 		$this->render('index');
 	}
 
