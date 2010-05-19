@@ -57,7 +57,8 @@ class UsersController extends AppController {
 			'order' => 'User.modified',
 			'limit' => 8,
 			'contain' => array(
-				'Submission' => array('limit' => 3)
+				'Submission' => array('limit' => 3),
+				'Submission.Project'
 			),
 		);
 		$this->set('users', $this->paginate());

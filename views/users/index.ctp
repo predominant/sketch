@@ -16,7 +16,9 @@
 					array('controller' => 'users', 'action' => 'view', $user['User']['id'])); ?></h3>
 				<?php foreach ($user['Submission'] as $submission): ?>
 					<div class="submission-thumb">
-						Submission
+						<?php echo $this->Html->link(
+							sprintf(__('%s\'s submission for %s.', true), $user['User']['display_name'], $submission['Project']['name']),
+							array('controller' => 'submissions', 'action' => 'view', $submission['id'])); ?>
 					</div>
 				<?php endforeach; ?>
 			</div>
