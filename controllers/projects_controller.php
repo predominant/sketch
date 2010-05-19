@@ -39,7 +39,7 @@ class ProjectsController extends AppController {
 			'order' => $this->Project->alias . '.modified DESC',
 			'limit' => 8,
 			'contain' => array(
-				'Submission',
+				'Submission' => array('limit' => 9),
 				'Submission.User'
 			),
 		);
