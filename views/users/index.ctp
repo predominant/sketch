@@ -1,26 +1,27 @@
 <div class="users index">
-	<h2><?php __('Users');?></h2>
-	<?php foreach ($users as $user): ?>
-		<div class="user-summary">
-			<?php
-			echo $this->Gravatar->image(
-				$user['User']['email'],
-				array(
-					'default' => Router::url('/img/spacer.png', true),
-					'size' => 200,
-					'class' => 'main-image'));
-			?>
-			<h3 class="display-name"><?php echo $this->Html->link(
-				$user['User']['display_name'],
-				array('controller' => 'users', 'action' => 'view', $user['User']['id'])); ?></h3>
-			<div class="submission-thumb">
+	<h2><?php __('Users'); ?></h2>
+	<div class="clearfix">
+		<?php foreach ($users as $user): ?>
+			<div class="user-summary">
+				<?php
+				echo $this->Gravatar->image(
+					$user['User']['email'],
+					array(
+						'default' => Router::url('/img/spacer.png', true),
+						'size' => 200,
+						'class' => 'main-image'));
+				?>
+				<h3 class="display-name"><?php echo $this->Html->link(
+					$user['User']['display_name'],
+					array('controller' => 'users', 'action' => 'view', $user['User']['id'])); ?></h3>
+				<?php foreach ($user['Submission'] as $submission): ?>
+					<div class="submission-thumb">
+					
+					</div>
+				<?php endforeach; ?>
 			</div>
-			<div class="submission-thumb">
-			</div>
-			<div class="submission-thumb">
-			</div>
-		</div>
-	<?php endforeach; ?>
+		<?php endforeach; ?>
+	</div>
 
 <!--
 	<table cellpadding="0" cellspacing="0">
