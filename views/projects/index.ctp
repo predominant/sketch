@@ -3,17 +3,21 @@
 	<div class="clearfix">
 		<?php foreach ($projects as $project): ?>
 			<div class="project-summary">
-				<?php echo $this->Html->image('spacer.png', array('class' => 'main-image')); ?>
+				<?php echo $this->Html->image('spacer.png', array('class' => 'main-image', 'alt' => $project['Project']['name'])); ?>
 				<h3 class="display-name"><?php echo $this->Html->link(
 					$project['Project']['name'],
 					array('controller' => 'projects', 'action' => 'view', $project['Project']['id'])); ?></h3>
 				<?php foreach ($project['Submission'] as $submission): ?>
 					<div class="user-thumb">
-						<?php echo $this->Gravatar->image(
-							$submission['User']['email'],
-							array(
-								'size' => 65,
-								'default' => Router::url('/img/spacer.png', true))); ?>
+						<?php echo $this->Html->link(
+							$this->Gravatar->image(
+								$submission['User']['email'],
+								array(
+									'size' => 65,
+									'default' => Router::url('/img/spacer.png', true),
+									'alt' => $submission['User']['display_name'])),
+							array('controller' => 'users', 'action' => 'view', $submission['User']['id']),
+							array('escape' => false)); ?>
 					</div>
 				<?php endforeach; ?>
 			</div>

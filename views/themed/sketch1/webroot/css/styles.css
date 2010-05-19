@@ -111,11 +111,14 @@ h2 {
 	display: block;
 	text-indent: -9999px;
 }
+.project-summary .user-thumb,
+.project-summary .user-thumb img {
+	height: 65px;
+	width: 65px;
+}
 .project-summary .user-thumb {
 	float: left;
 	border-top: solid #fff 1px;
 	border-left: solid #fff 1px;
-	height: 65px;
-	width: 65px;
 	background-color: #639;
 }
