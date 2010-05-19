@@ -16,7 +16,7 @@
 					array('controller' => 'users', 'action' => 'view', $user['User']['id'])); ?></h3>
 				<?php foreach ($user['Submission'] as $submission): ?>
 					<div class="submission-thumb">
-					
+						Submission
 					</div>
 				<?php endforeach; ?>
 			</div>
