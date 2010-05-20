@@ -53,13 +53,6 @@ class ThumbHelper extends AppHelper {
 	);
 
 /**
- * Cache filename
- *
- * @var string
- */
-	protected $_cacheFilename;
-
-/**
  * Internal error information
  * @var mixed
  */
@@ -90,7 +83,6 @@ class ThumbHelper extends AppHelper {
 			$options['f'] = $this->_getFileExtension($src);
 		}
 		$this->options = array_merge($this->_defaults, $options);
-		$this->_setCacheFilename($src);
 		$this->_setupImageMagick();
 	}
 
@@ -132,7 +124,7 @@ class ThumbHelper extends AppHelper {
  *
  * @return void
  */
-	protected function _setCacheFilename($src) {
+	protected function _getCacheFilename($src) {
 		ksort($this->options);
 		$filenameParts = array();
 		foreach($this->options as $k => $v) {
@@ -148,11 +140,11 @@ class ThumbHelper extends AppHelper {
 			}
 		}
 		
-		$this->_cacheFilename = '';
+		$cacheName = '';
 		foreach($filenameParts as $key => $value) {
-			$this->_cacheFilename .= $key . $value;
+			$cacheName .= $key . $value;
 		}
-		$this->_cacheFilename = $this->options['save_path'] . DS . sha1($src . $this->_cacheFilename) . '.' . $this->options['f'];
+		return $this->options['save_path'] . DS . sha1($src . $cacheName) . '.' . $this->options['f'];
 	}
 
 /**
@@ -160,8 +152,8 @@ class ThumbHelper extends AppHelper {
  * 
  * @return boolean Cached
  */
-	protected function _isCached() {
-		return is_file('img' . DS . $this->_cacheFilename);
+	protected function _isCached($src) {
+		return is_file('img' . DS . $this->_getCacheFilename($src));
 	}
 
 /**
@@ -169,8 +161,8 @@ class ThumbHelper extends AppHelper {
  *
  * @return boolean Expired
  */
-	protected function _expired() {
-		$filename = 'img' . DS . $this->_cacheFilename;
+	protected function _expired($src) {
+		$filename = 'img' . DS . $this->_getCacheFilename($src);
 		if (!$this->options['expires'] || !is_file($filename)) {
 			return true;
 		}
@@ -182,7 +174,7 @@ class ThumbHelper extends AppHelper {
  *
  * @return mixed Cached filename returned if thumbnailing was successful. False on error.
  */
-	public function createThumb($src) {
+	public function createThumb($src, $dest) {
 		App::import('Vendor', 'phpthumb', array('file' => 'phpThumb' . DS . 'phpthumb.class.php'));
 		if (!class_exists('phpthumb')) {
 			trigger_error(__('phpThumb must be installed in the vendors directory: APP/vendors/phpThumb', true), E_USER_ERROR);
@@ -203,14 +195,11 @@ class ThumbHelper extends AppHelper {
 		}
 		@ini_set('max_execution_time', 0);
 		if ($phpThumb->GenerateThumbnail()) {
-			$phpThumb->RenderToFile('img' . DS . $this->_cacheFilename);
-			return $this->_cacheFilename;
+			$phpThumb->RenderToFile('img' . DS . $dest);
+			return $dest;
 		}
-		debug($phpThumb->fatalerror);
-		die('here');
-		
 		$this->_error = preg_replace('/[^A-Za-z0-9\/: .]/', '', $phpThumb->fatalerror);
-		$this->_error = preg_replace('/phpThumb v[0-9\.]+/', '', $this->_error);
+		$this->_error = preg_replace('/phpThumb v[0-9\.\-]+/', '', $this->_error);
 		return false;
 	}
 
@@ -249,9 +238,10 @@ class ThumbHelper extends AppHelper {
  */
 	public function generate($src, $options = array(), $tagOptions = array()) {
 		$this->_initialize($src, $options);
-		if(!$this->_isCached() || $this->_expired() || $this->options['force']) {
-			return $this->createThumb($src);
+		$cacheName = $this->_getCacheFilename($src);
+		if(!$this->_isCached($src) || $this->_expired($src) || $this->options['force']) {
+			return $this->createThumb($src, $cacheName);
 		}
-		return $this->_cacheFilename;
+		return $cacheName;
 	}
 }
