@@ -122,3 +122,45 @@ h2 {
 	border-left: solid #fff 1px;
 	background-color: #639;
 }
+
+/**
+ * Forms
+ */
+form {
+	width: 490px;
+	margin: 0 auto;
+}
+label {
+	color: #999;
+	display: block;
+	width: 100px;
+	float: left;
+	font-size: 1.5em;
+	text-align: right;
+}
+.required label {
+	color: #333;
+}
+.input {
+	height: 40px;
+	line-height: 40px;
+	margin-bottom: 0.5em;
+}
+input {
+	border: solid #aaa 1px;
+	line-height: 1.5em;
+	font-size: 1.5em;
+	width: 350px;
+	float: right;
+	padding: 3px 5px;
+	background: #eee;
+	background: -webkit-gradient(linear, left top, left bottom, from(#efefef), to(#fff));
+	background: -moz-linear-gradient(top, #efefef, #fff);
+}
+.submit input {
+	width: 150px;
+	background: #ccc;
+	background: -webkit-gradient(linear, left top, left bottom, from(#eee), to(#ccc));
+	background: -moz-linear-gradient(top, #eee, #ccc);
+	color: #333;
+}

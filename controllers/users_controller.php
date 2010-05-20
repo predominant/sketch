@@ -66,6 +66,23 @@ class UsersController extends AppController {
 	}
 
 /**
+ * User Login
+ *
+ * @return void
+ */
+	public function login() {
+	}
+
+/**
+ * User Logout
+ *
+ * @return void
+ */
+	public function logout() {
+		$this->redirect($this->Auth->logout());
+	}
+
+/**
  * View User
  *
  * @param string $id User ID
