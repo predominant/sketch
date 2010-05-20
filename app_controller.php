@@ -44,7 +44,7 @@ class AppController extends Controller {
  *
  * @var array
  */
-	public $helpers = array('Form', 'Goodies.Gravatar', 'Html', 'Session');
+	public $helpers = array('Form', 'Goodies.Gravatar', 'Html', 'Session', 'Thumb');
 
 /**
  * Constructor

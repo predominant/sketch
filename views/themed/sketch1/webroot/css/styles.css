@@ -109,7 +109,7 @@ h2 {
 .user-summary .submission-thumb a {
 	overflow: hidden;
 	display: block;
-	text-indent: -9999px;
+	
 }
 .project-summary .user-thumb,
 .project-summary .user-thumb img {

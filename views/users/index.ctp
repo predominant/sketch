@@ -17,11 +17,19 @@
 				<?php foreach ($user['Submission'] as $submission): ?>
 					<div class="submission-thumb">
 						<?php echo $this->Html->link(
-							sprintf(__('%s\'s submission for %s.', true), $user['User']['display_name'], $submission['Project']['name']),
+							$this->Thumb->image(
+								'upload' . DS . $submission['file_name'],
+								array(
+									'w' => 200,
+									'h' => 60),
+								array(
+									'alt' => sprintf(__('%s\'s submission for %s.', true), $user['User']['display_name'], $submission['Project']['name'])
+								)),
 							array(
 								'controller' => 'submissions',
 								'action' => 'view',
-								$submission['id'])); ?>
+								$submission['id']),
+							array('escape' => false)); ?>
 					</div>
 				<?php endforeach; ?>
 			</div>
