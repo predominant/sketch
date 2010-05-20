@@ -157,10 +157,21 @@ input {
 	background: -webkit-gradient(linear, left top, left bottom, from(#efefef), to(#fff));
 	background: -moz-linear-gradient(top, #efefef, #fff);
 }
+input:focus {
+}
 .submit input {
 	width: 150px;
 	background: #ccc;
 	background: -webkit-gradient(linear, left top, left bottom, from(#eee), to(#ccc));
 	background: -moz-linear-gradient(top, #eee, #ccc);
+	color: #444;
+}
+.submit input:hover {
+	background: #d3d3d3;
+	background: -webkit-gradient(linear, left top, left bottom, from(#f9f9f9), to(#d3d3d3));
+	background: -moz-linear-gradient(top, #f9f9f9, #d3d3d3);
 	color: #333;
+}
+.submit input:active {
+	border-color: #666;
 }

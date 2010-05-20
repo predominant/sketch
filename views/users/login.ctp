@@ -5,7 +5,6 @@
 	<?php
 	echo $this->Form->input('email');
 	echo $this->Form->input('password');
-	echo $this->Form->input('extra');
 	?>
 	</fieldset>
 <?php echo $this->Form->end(__('Login', true));?>
